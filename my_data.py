@@ -10,8 +10,8 @@ with open(json_file, "r") as json_data:
 
 # -- Prepare API request -------------------------------------------------------
 params = {
-    'access_token' : '5b65a509ae4763bf088b596d|9f7f9a1b150f6',
-    'device_id'    : '[YOUR_DEVICE_ID]'
+    'access_token'  : cred["access_token"],
+    'device_id'    : '70:ee:50:13:67:ca'
 }
 
 try:
