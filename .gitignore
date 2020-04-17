@@ -1,2 +1,5 @@
 # Credentials file
 credentials.json
+
+# Constants file
+constants.json
