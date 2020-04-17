@@ -11,7 +11,7 @@ with open(json_file, "r") as json_data:
 # -- Prepare API request -------------------------------------------------------
 payload = {
     'grant_type'    : 'refresh_token',
-    'refresh_token' : cred["refresh_token"],
+    'refresh_token' : cred["refresh"],
     'client_id'     : cred["client_id"],
     'client_secret' : cred["client_secret"]
 }
@@ -27,7 +27,7 @@ try:
 
     print("")
     print("Access token  : ", access_token)
-    print("Refresh token : ", refresh_token)
+    print("Refresh       : ", refresh_token)
     print("Scope         : ", scope)
     print("Expires in    : ", expires)
     print("--------------------------------------------------------------------------")
@@ -35,7 +35,7 @@ try:
 
     # -- Write new tokens to credentials file ----------------------------------
     cred["access_token"] = access_token
-    cred["refresh"]      = refresh_token
+    cred["refresh_token"]= refresh_token
 
     with open(json_file, "w") as json_data:
         json.dump(cred, json_data)
