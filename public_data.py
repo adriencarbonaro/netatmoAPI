@@ -4,19 +4,22 @@ import requests
 import json
 
 # -- Open credentials file -------------------------------------------------------------
-json_file = 'credentials.json'
+json_file  = 'credentials.json'
+json_const = 'constants.json'
 with open(json_file) as json_data:
     cred = json.load(json_data)
+with open(json_const, "r") as json_constants:
+    const = json.load(json_constants)
 
 # -- Prepare API request -------------------------------------------------------
 # TODO: Get Coordinates from Geocoding API
 # (Google Geocoding API, https://www.gps-coordinates.net/api, etc.)
 params = {
     'access_token'  : cred["access_token"],
-    'lat_ne'        : 3,
-    'lon_ne'        : 4,
-    'lat_sw'        : -2,
-    'lon_sw'        : -2,
+    'lat_ne'        : const["coordinates"]["lat_ne"],
+    'lon_ne'        : const["coordinates"]["lon_ne"],
+    'lat_sw'        : const["coordinates"]["lat_sw"],
+    'lon_sw'        : const["coordinates"]["lon_sw"],
     'required_data' : 'temperature',
     'filter'        : 'true',
 }
